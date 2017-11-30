@@ -1,0 +1,38 @@
+<div class="container">
+  <md-card class="example-card">
+    <md-card-title>Login</md-card-title>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+          <md-list>
+            <md-list-item>
+              <md-input-container style="width: 100%">
+                <input mdInput type="text" required pattern="^\S+@(([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6})$" #refName formControlName="email"
+                       name="email" id="InputName" placeholder="Email" style="width: 100%">
+              </md-input-container>
+              <br>
+              <small class="massege" [hidden]="userForm.controls.email.valid || (userForm.controls.email.pristine) || (userForm.controls.email.untouched)">
+               Email is required with valid formate
+              </small>
+            </md-list-item>
+
+            <md-list-item>
+              <md-input-container style="width: 100%">
+                <input mdInput type="password" required #refName formControlName="password"
+                       name="password" id="InputPassword" placeholder="Password">
+              </md-input-container>
+              <br>
+              <small class="massege" [hidden]="userForm.controls.password.valid || (userForm.controls.password.pristine)">
+                Password is required minimum 5 characters
+              </small>
+            </md-list-item>
+            <md-list-item>
+              <input type="submit" name="submit" value="Submit" class="btn btn-block" md-raised-button>
+            </md-list-item>
+          </md-list>
+        </form>
+
+    </div>
+  </div>
+  </md-card>
+</div>

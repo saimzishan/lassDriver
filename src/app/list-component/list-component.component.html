@@ -1,0 +1,38 @@
+<div class="container">
+  <md-card class="example-card">
+    <md-card-title>Truck lists</md-card-title>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6"    infinite-scroll   [infiniteScrollDistance]="2"
+             [infiniteScrollThrottle]="300">
+
+          <md-card class="example-card"  *ngFor="let truckList of truckLists; let i = index">
+              <md-card-title>
+                <i (click)="onSelect(truckList)">
+                 <a> ID: {{truckList.id}}</a>
+
+                </i>
+                <i (click)="deleteTruclList(truckList.id)" class="material-icons pull-right">delete</i>   <i class="material-icons pull-right" (click)="onEdit(truckList)">create</i>
+              </md-card-title>
+            <md-card-subtitle> Project Name: {{truckList.get_project_data.project_name}}</md-card-subtitle>
+
+            <hr>
+              <md-card-content>
+              <i class="material-icons">ic_view_list</i> {{truckList.total_loads}} Loads
+
+              </md-card-content>
+            <hr>
+
+          </md-card>
+        </div>
+      </div>
+    <md-card-actions>
+      <a routerLink="/truckLists">
+        <button class=" btn btn-block" md-raised-button>New Truck list </button>
+      </a>
+    </md-card-actions>
+  </md-card>
+
+</div>
+
+
+

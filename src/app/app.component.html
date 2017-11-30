@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="logout" [hidden]="false">
+    <button md-button (click)="logout()"> Logout <md-icon>exit_to_app</md-icon></button>
+  </div>
+  <md-spinner style="height: 20px;width: 20px" *ngIf="ss.isLoading"></md-spinner>
+</div>
+<router-outlet></router-outlet>
+

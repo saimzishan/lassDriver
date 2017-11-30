@@ -1,0 +1,58 @@
+<div class="container">
+  <md-card class="example-card">
+    <md-card-title>Update truck list</md-card-title>
+    <md-card-content>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form [formGroup]= "newTruckListForm"  (ngSubmit)="onSubmit()" novalidate>
+            <fieldset>
+              <!-- Form Name -->
+              <!-- Select Basic -->
+              <div class="form-group">
+                <label class="control-label" for="selectbasic">Customer</label>
+                <div class="">
+                  <md-select placeholder="" style="width: 100%" name="customer_id" formControlName="customer_id"
+                             [(ngModel)]="customer_id">
+                    <md-option (click)="onChange(customer.id)" *ngFor="let customer of loadLists"
+                               [value]="customer.id"  >
+                      {{ customer.customer_name }}
+                    </md-option>
+                  </md-select>
+
+                </div>
+              </div>
+              <!-- Select Basic -->
+              <div class="form-group" [hidden]="customer">
+                <label class="control-label" for="selectbasic">Project</label>
+                <div class="">
+                  <md-select style="width: 100%" name="project_id" formControlName="project_id"  [(ngModel)]="project_id">
+                    <md-option (click)="onProChange()" *ngFor="let project of projects"
+                               [value]="project.id"  >
+                      {{ project.project_name }}
+                    </md-option>
+                  </md-select>
+                </div>
+              </div>
+
+              <!-- Select Basic -->
+              <div class="form-group" [hidden]="project">
+                <label class=" control-label" for="selectbasic">Vehicle</label>
+                <div class="">
+                  <md-select placeholder="" style="width: 100%" name="vehicle_id" formControlName="vehicle_id"
+                             [(ngModel)]="vehicle_id">
+                    <md-option *ngFor="let vehicle of vehicles" selected="" [value]="vehicle.id"  >
+                      {{ vehicle.description }}
+                    </md-option>
+                  </md-select>
+                </div>
+              </div>
+              <input type="submit" name="submit" value="Submit" class="btn  btn-block" md-raised-button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>
+
+

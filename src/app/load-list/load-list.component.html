@@ -1,0 +1,49 @@
+<div class="container">
+
+    <md-card class="example-card">
+    <md-card-title> Project name</md-card-title>
+    <md-card-subtitle>
+    Customer name
+    </md-card-subtitle>
+    <md-card-subtitle>
+      Vehicle name
+    </md-card-subtitle>
+  <md-card-content>
+      <div class="row">
+    <div class="col-md-6 col-md-offset-3" *ngFor="let loadList of loadLists">
+      <md-card class="example-card">
+        <md-card-title (click)="onSelect(loadList.id)">
+          <i>ID: {{loadList.id}} </i>
+          <i class="material-icons pull-right" (click)="deleteloadlList(loadList.id)">delete</i>  <i class="material-icons pull-right" (click)="onEdit(loadList)">create</i>
+        </md-card-title>
+        <md-card-content>
+          <table class="table table-responsive">
+            <tr> <td><strong>From:</strong></td><td> {{loadList.from_destination}}</td> </tr>
+            <tr> <td><strong>To:</strong></td> <td> {{loadList.to_destination}}</td> </tr>
+          </table>
+        </md-card-content>
+        <md-card-actions>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+  </md-card-content>
+    <md-card-actions>
+
+        <button (click)="onSelect(truckList.id)" class=" btn btn-block" md-raised-button>Add truck load </button>
+
+
+        <button (click)="addSignature()" class="btn btn-block" md-raised-button>Add signature </button>
+
+
+      <button  class=" btn btn-block">
+        <input  placeholder="Select File" type="file">
+      </button>
+
+      <a routerLink="/Lists">
+        <button class=" btn btn-block" md-raised-button>Back</button>
+      </a>
+    </md-card-actions>
+  </md-card>
+  </div>
+
